@@ -1,8 +1,12 @@
-
 import Link from 'next/link';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+
+  // Número do WhatsApp e mensagem padrão
+  const whatsappNumber = '5541999878219';
+  const whatsappMessage = 'Olá Ander vim através do site e gostaria de mais informações';
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   const navLinks = [
     { href: '#home', label: 'Início' },
@@ -14,10 +18,8 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { href: 'https://wa.me/SEUNUMERO', icon: 'fab fa-whatsapp', label: 'WhatsApp' },
-    { href: 'https://instagram.com/SEUINSTAGRAM', icon: 'fab fa-instagram', label: 'Instagram' },
-    { href: 'https://facebook.com/SEUFACEBOOK', icon: 'fab fa-facebook-f', label: 'Facebook' },
-    { href: 'https://linkedin.com/in/SEULINKEDIN', icon: 'fab fa-linkedin-in', label: 'LinkedIn' },
+    { href: whatsappLink, icon: 'fab fa-whatsapp', label: 'WhatsApp' },
+    { href: 'https://www.instagram.com/anderbritto_personaltrainer/', icon: 'fab fa-instagram', label: 'Instagram' },
   ];
 
   return (
@@ -61,9 +63,18 @@ export default function Footer() {
 
         <div className="footer-column footer-contact">
           <h3 className="footer-heading">Contato</h3>
-          <p><i className="fas fa-map-marker-alt"></i> Rua Exemplo, 123 - Cidade, Estado</p>
-          <p><i className="fas fa-phone"></i> (41) 99987-8219 </p>
-          <p><i className="fas fa-envelope"></i> contato@andersonbritto.com</p>
+          <p>
+            <i className="fab fa-whatsapp"></i>{' '}
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+              (41) 99987-8219
+            </a>
+          </p>
+          <p style={{ marginTop: '10px' }}>
+            <i className="fab fa-instagram"></i>{' '}
+            <a href="https://www.instagram.com/anderbritto_personaltrainer/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>
+              @anderbritto_personaltrainer
+            </a>
+          </p>
         </div>
       </div>
 

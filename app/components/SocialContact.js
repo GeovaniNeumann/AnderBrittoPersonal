@@ -3,6 +3,11 @@
 import Link from 'next/link';
 
 export default function SocialContact() {
+  // Número do WhatsApp e mensagem padrão
+  const whatsappNumber = '5541999878219';
+  const whatsappMessage = 'Olá Ander vim através do site e gostaria de mais informações';
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
   return (
     <section id="social-contact">
       <div className="section-title">
@@ -12,7 +17,7 @@ export default function SocialContact() {
 
       <div className="social-buttons">
         <Link
-          href="https://wa.me/5541999878219"
+          href={whatsappLink}
           target="_blank"
           rel="noopener"
           className="social-button whatsapp-button"
@@ -22,7 +27,7 @@ export default function SocialContact() {
         </Link>
 
         <Link
-          href="https://www.instagram.com/andy_personaltrainer/"
+          href="https://www.instagram.com/anderbritto_personaltrainer/"
           target="_blank"
           rel="noopener"
           className="social-button instagram-button"

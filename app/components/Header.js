@@ -9,6 +9,11 @@ export default function Header() {
   const [activeLink, setActiveLink] = useState('home');
   const [hoveredLink, setHoveredLink] = useState(null);
 
+  // Número do WhatsApp e mensagem padrão
+  const whatsappNumber = '5541999878219';
+  const whatsappMessage = 'Olá Ander vim através do site e gostaria de mais informações';
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
   useEffect(() => {
     // Observer para detectar seções visíveis
     const sections = ['home', 'about', 'services', 'testimonials', 'faq', 'social-contact'];
@@ -144,7 +149,7 @@ export default function Header() {
 
         <div className="desktop-only">
           <Link
-            href="https://wa.me/5541999878219"
+            href={whatsappLink}
             target="_blank"
             className="btn-whatsapp"
           >
@@ -211,7 +216,7 @@ export default function Header() {
           ))}
           
           <Link
-            href="https://wa.me/5541999878219"
+            href={whatsappLink}
             target="_blank"
             className="mobile-btn-whatsapp"
             onClick={closeMenu}

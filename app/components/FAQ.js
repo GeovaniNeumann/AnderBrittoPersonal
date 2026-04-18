@@ -4,24 +4,24 @@ import { useState } from 'react';
 
 const faqItems = [
   {
-    question: 'Como funciona a primeira consulta?',
-    answer: 'A primeira consulta é uma avaliação completa onde conversamos sobre seus objetivos, histórico de saúde, rotina e preferências. Realizo também uma avaliação física para estabelecer parâmetros iniciais e criar um plano personalizado.',
+    question: 'Como funciona o início do acompanhamento?',
+    answer: 'Tudo começa com uma análise detalhada e uma avaliação de objetivos. Analiso seu histórico, rotina e nível de condicionamento para criar um planejamento estratégico 100% individualizado, focado em resultados reais e seguros.',
   },
   {
-    question: 'Quais são as formas de pagamento?',
-    answer: 'Aceito pagamento via PIX, cartão de crédito (até 3x sem juros), transferência bancária e dinheiro. Ofereço pacotes com descontos progressivos para planos mensais, trimestrais e semestrais.',
+    question: 'Como funcionam os pagamentos?',
+    answer: 'Trabalho com PIX, transferências e cartão de crédito. Ofereço planos mensais ou pacotes trimestrais e semestrais com condições especiais para quem busca um compromisso sério com a transformação física.',
   },
   {
-    question: 'Preciso de equipamentos para o treino online?',
-    answer: 'Não necessariamente. Adapto os treinos aos equipamentos que você tem disponível. Desde treinos com peso corporal até aqueles com equipamentos completos. Posso também sugerir equipamentos básicos e acessíveis para potencializar seus resultados.',
+    question: 'Não treino em academia, posso fazer a consultoria online?',
+    answer: 'Com certeza! Os treinos da consultoria são adaptados ao que você tem disponível, seja o peso do próprio corpo, elásticos ou equipamentos básicos de casa. O foco é a técnica e a intensidade correta para gerar evolução constante.',
   },
   {
-    question: 'Como é o acompanhamento nutricional?',
-    answer: 'O acompanhamento nutricional é baseado em suas preferências alimentares, rotina e objetivos. Forneço orientações personalizadas, planos alimentares práticos e sugestões de cardápios. O foco é criar hábitos sustentáveis, não dietas restritivas.',
+    question: 'Terei orientações sobre alimentação?',
+    answer: 'Sim. O treino e a alimentação andam juntos. Forneço guias nutricionais práticos e sugestões que se adaptam ao seu estilo de vida, focando em fornecer energia para os treinos e acelerar a queima de gordura sem dietas restritivas insustentáveis.',
   },
   {
-    question: 'Você atende em algum local específico ou apenas à domicílio?',
-    answer: 'Atendo em academia parceira, em domicílio e também online. Para os treinos presenciais, a localização depende da sua região e da disponibilidade na agenda. Entre em contato para verificar a viabilidade para o seu endereço.',
+    question: 'Onde os treinos presenciais são realizados?',
+    answer: 'Atendo em academias parceiras na região e também ofereço a modalidade de Personal Home (em domicílio). A disponibilidade depende da agenda atual, por isso recomendo entrar em contato via WhatsApp para verificarmos o melhor horário para você.',
   },
 ];
 

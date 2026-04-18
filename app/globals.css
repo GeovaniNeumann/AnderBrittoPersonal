@@ -92,7 +92,7 @@ html {
 
 @media (max-width: 768px) {
   html {
-    font-size: 14px;
+    font-size: 16px; /* Mantém legibilidade base no mobile */
   }
 }
 
@@ -101,7 +101,7 @@ body {
   color: var(--color-text);
   font-family: var(--font-family-base);
   font-weight: var(--font-weight-regular);
-  line-height: 1.6;
+  line-height: 1.7;
   overflow-x: hidden;
   -webkit-tap-highlight-color: transparent;
 }
@@ -140,18 +140,21 @@ body::after {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-heading);
   font-weight: var(--font-weight-bold);
-  line-height: 1.2;
+  line-height: 1.25;
   color: var(--color-secondary);
+  letter-spacing: -0.02em;
 }
 
 h1 { font-size: var(--font-size-6xl); }
 h2 { font-size: var(--font-size-5xl); }
-h3 { font-size: var(--font-size-3xl); }
+h3 { font-size: var(--font-size-4xl); }
 h4 { font-size: var(--font-size-2xl); }
 
 p {
   margin-bottom: var(--space-md);
   color: var(--color-text-muted);
+  font-size: var(--font-size-md);
+  line-height: 1.75;
 }
 
 a {
@@ -1433,7 +1436,7 @@ section:not(:first-of-type) {
 }
 
 .developer-link {
-  color: var(--color-accent);
+  color: #aaa;
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -1497,11 +1500,11 @@ section:not(:first-of-type) {
   }
   
   .about-info h3 {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-4xl);
   }
   
   .section-title h2 {
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-5xl);
   }
   
   .section-title h2::after {
@@ -1614,33 +1617,34 @@ section:not(:first-of-type) {
   }
   
   .mobile-menu-overlay {
-    padding: 70px 20px 30px !important;
+    padding: 80px 24px 40px !important;
     justify-content: center !important;
-    gap: 15px;
+    gap: 20px;
   }
   
   .mobile-logo-main {
-    font-size: var(--font-size-xl) !important;
+    font-size: var(--font-size-2xl) !important;
   }
   
   .mobile-logo-sub {
-    font-size: 0.6rem !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 2px;
   }
   
   .mobile-nav-container {
-    gap: var(--space-sm) !important;
-    margin: 0 !important;
+    gap: var(--space-md) !important;
+    margin: var(--space-sm) 0 !important;
   }
   
   .mobile-nav-link {
-    font-size: var(--font-size-sm) !important;
-    padding: var(--space-sm) var(--space-lg) !important;
-    min-width: 180px !important;
+    font-size: var(--font-size-lg) !important;
+    padding: var(--space-md) var(--space-2xl) !important;
+    min-width: 220px !important;
   }
   
   .mobile-nav-link i {
-    font-size: var(--font-size-sm) !important;
-    width: 22px !important;
+    font-size: var(--font-size-lg) !important;
+    width: 26px !important;
   }
   
   .mobile-nav-link.active {
@@ -1649,18 +1653,18 @@ section:not(:first-of-type) {
   }
   
   .mobile-btn-whatsapp {
-    padding: var(--space-sm) var(--space-lg) !important;
-    font-size: var(--font-size-xs) !important;
-    min-width: 200px !important;
+    padding: var(--space-md) var(--space-2xl) !important;
+    font-size: var(--font-size-md) !important;
+    min-width: 240px !important;
     max-width: 90% !important;
     white-space: nowrap;
   }
   
   .mobile-close-btn {
-    top: 15px !important;
-    right: 15px !important;
-    width: 38px !important;
-    height: 38px !important;
+    top: 18px !important;
+    right: 18px !important;
+    width: 44px !important;
+    height: 44px !important;
     background: rgba(255, 77, 77, 0.15) !important;
     backdrop-filter: blur(5px);
   }
@@ -1671,15 +1675,16 @@ section:not(:first-of-type) {
   }
   
   .section-title h2 {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-4xl);
   }
   
   .section-title p {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-md);
+    line-height: 1.75;
   }
   
   .about-info h3 {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-4xl);
   }
   
   .service-card {
@@ -1687,7 +1692,7 @@ section:not(:first-of-type) {
   }
   
   .service-card h3 {
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-2xl);
   }
   
   .testimonial {
@@ -1695,12 +1700,13 @@ section:not(:first-of-type) {
   }
   
   .testimonial-text {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-md);
+    line-height: 1.75;
   }
   
   .faq-question {
-    padding: var(--space-md);
-    font-size: var(--font-size-sm);
+    padding: var(--space-md) var(--space-lg);
+    font-size: var(--font-size-md);
   }
 }
 
@@ -1729,39 +1735,39 @@ section:not(:first-of-type) {
   }
   
   .mobile-menu-overlay {
-    padding: 60px 15px 25px !important;
-    gap: 12px;
+    padding: 70px 20px 30px !important;
+    gap: 16px;
   }
   
   .mobile-logo-main {
-    font-size: var(--font-size-lg) !important;
+    font-size: var(--font-size-xl) !important;
   }
   
   .mobile-logo-sub {
-    font-size: 0.55rem !important;
+    font-size: 0.7rem !important;
   }
   
   .mobile-nav-link {
-    font-size: var(--font-size-xs) !important;
-    padding: var(--space-sm) var(--space-md) !important;
-    min-width: 160px !important;
+    font-size: var(--font-size-md) !important;
+    padding: var(--space-sm) var(--space-xl) !important;
+    min-width: 200px !important;
   }
   
   .mobile-nav-link i {
-    font-size: var(--font-size-xs) !important;
-    width: 20px !important;
+    font-size: var(--font-size-md) !important;
+    width: 24px !important;
   }
   
   .mobile-btn-whatsapp {
-    padding: var(--space-sm) var(--space-md) !important;
-    font-size: 0.75rem !important;
-    min-width: 160px !important;
+    padding: var(--space-sm) var(--space-xl) !important;
+    font-size: var(--font-size-sm) !important;
+    min-width: 200px !important;
     max-width: 95% !important;
     white-space: nowrap;
   }
   
   .mobile-btn-whatsapp i {
-    font-size: var(--font-size-sm) !important;
+    font-size: var(--font-size-md) !important;
   }
   
   .hero-background {

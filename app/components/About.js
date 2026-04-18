@@ -7,6 +7,11 @@ export default function About() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
+  // Número do WhatsApp e mensagem padrão
+  const whatsappNumber = '5541999878219';
+  const whatsappMessage = 'Olá Ander vim através do site e gostaria de mais informações';
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -26,10 +31,10 @@ export default function About() {
   }, []);
 
   const stats = [
-    { icon: 'fas fa-graduation-cap', label: 'Formado em Educação Física' },
-    { icon: 'fas fa-clock', label: '5+ anos de experiência' },
-    { icon: 'fas fa-users', label: '+120 clientes transformados' },
-    { icon: 'fas fa-trophy', label: 'Resultados comprovados' },
+    { icon: 'fas fa-fire', label: 'Especialista em Emagrecimento' },
+    { icon: 'fas fa-dumbbell', label: 'Foco em Hipertrofia' },
+    { icon: 'fas fa-mobile-alt', label: 'Consultoria Online Global' },
+    { icon: 'fas fa-check-circle', label: 'Método de Resultados Rápidos' },
   ];
 
   return (
@@ -70,22 +75,23 @@ export default function About() {
             </div>
 
             <div className="about-text">
-              <p>
-                Profissional formado e apaixonado pelo mundo do fitness, já tive 
-                a oportunidade de ajudar diversos alunos a darem os primeiros passos 
-                em direção aos seus objetivos de saúde e condicionamento físico.
-              </p>
-              
-              <p>
-                Minha missão é proporcionar uma transformação completa não apenas 
-                no corpo, mas também na mente e no estilo de vida. Combino ciência 
-                do exercício, nutrição e psicologia para criar programas 100% 
-                personalizados.
-              </p>
+            <p>
+              Especialista em <strong>Emagrecimento e Hipertrofia</strong>, meu trabalho é focado em transformar o corpo 
+              e a autoestima de quem busca resultados reais. Com mais de 5 anos de experiência, 
+              ajudo meus alunos a saírem do sedentarismo e alcançarem sua melhor versão através de uma 
+              metodologia baseada em ciência e constância.
+            </p>
+            
+            <p>
+              Minha missão vai além de prescrever exercícios; eu entrego um <strong>planejamento estratégico</strong>. 
+              Seja no atendimento presencial ou na consultoria online, ajusto cada detalhe do treino para 
+              que ele se encaixe na sua rotina, garantindo que o processo seja eficiente, seguro e, 
+              acima de tudo, sustentável a longo prazo.
+            </p>
             </div>
 
             <Link
-              href="https://wa.me/5541999878219"
+              href={whatsappLink}
               target="_blank"
               className="about-cta"
             >

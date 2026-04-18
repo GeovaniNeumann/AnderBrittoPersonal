@@ -4,12 +4,36 @@
 import { useEffect, useRef } from 'react';
 
 const services = [
-  { icon: 'fas fa-dumbbell', title: 'Treinamento Personalizado', description: 'Sessões individuais com acompanhamento completo, focadas em seus objetivos específicos, seja emagrecimento, ganho de massa muscular ou condicionamento físico.' },
-  { icon: 'fas fa-laptop', title: 'Acompanhamento Online', description: 'Planos de treino e nutrição com acompanhamento remoto para quem precisa de flexibilidade. Ideal para quem viaja ou tem rotina agitada.' },
-  { icon: 'fas fa-heartbeat', title: 'Pré e Pós-Operatório', description: 'Programas especializados para recuperação de cirurgias e lesões com segurança. Auxílio na reabilitação e retorno às atividades físicas.' },
-  { icon: 'fas fa-users', title: 'Treino em Grupo', description: 'Sessões dinâmicas em pequenos grupos para quem prefere treinar com motivação coletiva. Ambiente descontraído e resultados eficientes.' },
-  { icon: 'fas fa-utensils', title: 'Consultoria Nutricional', description: 'Orientação alimentar personalizada para potencializar seus resultados. Planos alimentares adaptados à sua rotina e objetivos.' },
-  { icon: 'fas fa-home', title: 'Personal Home', description: 'Treinamento personalizado no conforto da sua casa. Equipamentos portáteis e adaptáveis para qualquer espaço.' },
+  { 
+    icon: 'fas fa-fire', 
+    title: 'Emagrecimento', 
+    description: 'Protocolos estratégicos desenhados para acelerar o metabolismo e queimar gordura de forma eficiente, respeitando a fisiologia feminina.' 
+  },
+  { 
+    icon: 'fas fa-dumbbell', 
+    title: 'Hipertrofia e Definição', 
+    description: 'Treinamento de força focado no ganho de massa muscular e estética, utilizando técnicas avançadas para maximizar seus resultados na academia.' 
+  },
+  { 
+    icon: 'fas fa-laptop', 
+    title: 'Consultoria Online', 
+    description: 'Acompanhamento premium via app com treinos personalizados para sua rotina, permitindo que você treine onde e quando quiser com suporte direto.' 
+  },
+  { 
+    icon: 'fas fa-chart-line', 
+    title: 'Planejamento Estratégico', 
+    description: 'Análise constante de progresso e ajustes mensais no seu plano para garantir que você nunca atinja um platô e continue evoluindo.' 
+  },
+  { 
+    icon: 'fas fa-utensils', 
+    title: 'Guia Nutricional', 
+    description: 'Orientação alimentar prática e sem restrições severas, focada em fornecer energia para o treino e otimizar a composição corporal.' 
+  },
+  { 
+    icon: 'fas fa-user-check', 
+    title: 'Personal Presencial', 
+    description: 'Atendimento exclusivo e correção técnica em tempo real para quem busca o máximo de segurança e intensidade em cada repetição.' 
+  },
 ];
 
 export default function Services() {
