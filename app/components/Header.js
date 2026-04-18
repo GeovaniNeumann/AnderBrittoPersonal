@@ -1,17 +1,16 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState('home');
-  const [hoveredLink, setHoveredLink] = useState(null);
 
   // Número do WhatsApp e mensagem padrão
   const whatsappNumber = '5541999878219';
-  const whatsappMessage = 'Olá Ander vim através do site e gostaria de mais informações';
+  const whatsappMessage = 'Olá Anderson, vim através do site e gostaria de mais informações';
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   useEffect(() => {
@@ -53,25 +52,18 @@ export default function Header() {
 
   // Função para lidar com o clique no link
   const handleLinkClick = (sectionId) => {
-    // Ativar o link imediatamente ao clicar
     setActiveLink(sectionId);
-    // Fechar menu mobile
     setIsMenuOpen(false);
     
-    // Rolar suavemente para a seção
     const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 80; // Altura do header
+      const offset = 80;
       const elementPosition = element.offsetTop - offset;
       window.scrollTo({
         top: elementPosition,
         behavior: 'smooth'
       });
     }
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
   };
 
   const toggleMenu = () => {
@@ -106,6 +98,7 @@ export default function Header() {
       <div className="header-glow" />
       
       <div className="header-container">
+        {/* Logo */}
         <Link 
           href="#home" 
           className="logo" 
@@ -122,6 +115,7 @@ export default function Header() {
           </div>
         </Link>
 
+        {/* Navegação Desktop */}
         <nav className="desktop-only">
           <ul className="nav-list">
             {navItems.map((item) => (
@@ -129,8 +123,6 @@ export default function Header() {
                 <Link
                   href={item.href}
                   className={`nav-link ${activeLink === item.id ? 'active' : ''}`}
-                  onMouseEnter={() => setHoveredLink(item.id)}
-                  onMouseLeave={() => setHoveredLink(null)}
                   onClick={(e) => {
                     e.preventDefault();
                     handleLinkClick(item.id);
@@ -138,19 +130,19 @@ export default function Header() {
                 >
                   <i className={item.icon} />
                   {item.label}
-                  {(activeLink === item.id || hoveredLink === item.id) && (
-                    <span className="nav-link-underline" />
-                  )}
+                  {activeLink === item.id && <span className="nav-link-underline" />}
                 </Link>
               </li>
             ))}
           </ul>
         </nav>
 
+        {/* Botão WhatsApp Desktop */}
         <div className="desktop-only">
           <Link
             href={whatsappLink}
             target="_blank"
+            rel="noopener noreferrer"
             className="btn-whatsapp"
           >
             <i className="fab fa-whatsapp" />
@@ -158,6 +150,7 @@ export default function Header() {
           </Link>
         </div>
 
+        {/* Botão Menu Mobile */}
         <button
           onClick={toggleMenu}
           className="menu-button mobile-only"
@@ -171,25 +164,15 @@ export default function Header() {
         </button>
       </div>
 
+      {/* Menu Mobile Overlay */}
       {isMenuOpen && (
         <div className="mobile-menu-overlay">
           <button
-            onClick={closeMenu}
-            style={{
-              position: 'absolute',
-              top: '20px',
-              right: '20px',
-              background: 'none',
-              border: 'none',
-              color: 'white',
-              fontSize: '1.5rem',
-              cursor: 'pointer',
-              padding: '10px',
-              zIndex: 1002,
-            }}
+            onClick={() => setIsMenuOpen(false)}
+            className="mobile-close-btn"
             aria-label="Fechar menu"
           >
-            <i className="fas fa-times"></i>
+            <i className="fas fa-times" />
           </button>
 
           <div className="mobile-logo">
@@ -199,27 +182,30 @@ export default function Header() {
             <span className="mobile-logo-sub">PERSONAL TRAINER</span>
           </div>
           
-          {navItems.map((item, index) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`mobile-nav-link ${activeLink === item.id ? 'active' : ''}`}
-              style={{ animationDelay: `${index * 0.05}s` }}
-              onClick={(e) => {
-                e.preventDefault();
-                handleLinkClick(item.id);
-              }}
-            >
-              <i className={item.icon} />
-              {item.label}
-            </Link>
-          ))}
+          <div className="mobile-nav-container">
+            {navItems.map((item, index) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`mobile-nav-link ${activeLink === item.id ? 'active' : ''}`}
+                style={{ animationDelay: `${index * 0.05}s` }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLinkClick(item.id);
+                }}
+              >
+                <i className={item.icon} />
+                {item.label}
+              </Link>
+            ))}
+          </div>
           
           <Link
             href={whatsappLink}
             target="_blank"
+            rel="noopener noreferrer"
             className="mobile-btn-whatsapp"
-            onClick={closeMenu}
+            onClick={() => setIsMenuOpen(false)}
           >
             <i className="fab fa-whatsapp" />
             AGENDAR AULA
