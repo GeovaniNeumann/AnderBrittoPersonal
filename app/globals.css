@@ -953,31 +953,85 @@ section:not(:first-of-type) {
   z-index: 1;
 }
 
-/* --- Testimonials Section --- */
+/* --- Testimonials Section  */
 #testimonials {
   padding: var(--space-4xl) 5%;
+  position: relative;
 }
 
 .testimonial-slider {
   max-width: 800px;
   margin: 0 auto;
+  position: relative;
+  min-height: 300px; /* Altura mínima para evitar layout shift */
 }
 
+/* Container dos depoimentos - melhora a performance */
+.testimonials-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Cada depoimento - transição suave */
 .testimonial {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   background: var(--color-gray-bg);
   backdrop-filter: var(--backdrop-blur-sm);
   padding: var(--space-2xl);
   border-radius: var(--border-radius-md);
   text-align: center;
   border: 1px solid rgba(255, 77, 77, 0.2);
-  display: none;
+  
+  /* Estados de transição */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(20px);
+  transition: opacity 0.6s ease-in-out, 
+              transform 0.6s ease-in-out,
+              visibility 0.6s ease-in-out;
+  
+  /* Otimização de performance */
+  will-change: opacity, transform;
+  pointer-events: none;
 }
 
+/* Depoimento ativo */
 .testimonial.active {
-  display: block;
-  animation: fadeInUp 0.5s ease;
+  position: relative; /* Volta ao fluxo normal quando ativo */
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  pointer-events: auto;
 }
 
+/* Depoimento anterior (saindo) */
+.testimonial.exit {
+  position: absolute;
+  opacity: 0;
+  transform: translateX(-20px);
+  visibility: hidden;
+}
+
+/* Depoimento entrando */
+.testimonial.enter {
+  position: absolute;
+  opacity: 0;
+  transform: translateX(20px);
+  visibility: hidden;
+}
+
+.testimonial.enter.active {
+  position: relative;
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible;
+}
+
+/* Conteúdo do depoimento */
 .testimonial-text {
   font-style: italic;
   font-size: var(--font-size-lg);
@@ -988,7 +1042,7 @@ section:not(:first-of-type) {
 
 .testimonial-author {
   font-weight: var(--font-weight-bold);
-  margin-bottom: 5px;
+  margin-bottom: var(--space-xs);
   color: var(--color-accent);
   font-size: var(--font-size-lg);
 }
@@ -998,11 +1052,14 @@ section:not(:first-of-type) {
   font-size: var(--font-size-sm);
 }
 
+/* Controles do slider */
 .slider-controls {
   display: flex;
   justify-content: center;
   gap: var(--space-md);
   margin-top: var(--space-xl);
+  position: relative;
+  z-index: 2;
 }
 
 .slider-dot {
@@ -1012,12 +1069,106 @@ section:not(:first-of-type) {
   background-color: #333;
   cursor: pointer;
   transition: all 0.3s ease;
+  
+  /* Otimização */
+  will-change: transform;
 }
 
 .slider-dot.active {
   background-color: var(--color-accent);
   box-shadow: var(--neon-effect);
   transform: scale(1.2);
+}
+
+.slider-dot:hover {
+  transform: scale(1.1);
+  background-color: var(--color-accent);
+}
+
+/* Botões de navegação (opcional - adicione se quiser setas) */
+.slider-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 77, 77, 0.2);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.slider-nav:hover {
+  background: var(--color-accent);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-nav.prev {
+  left: -60px;
+}
+
+.slider-nav.next {
+  right: -60px;
+}
+
+.slider-nav i {
+  color: white;
+  font-size: var(--font-size-lg);
+}
+
+/* Responsividade para testimonials */
+@media (max-width: 968px) {
+  .slider-nav.prev {
+    left: -40px;
+  }
+  
+  .slider-nav.next {
+    right: -40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonial {
+    padding: var(--space-xl);
+  }
+  
+  .testimonial-text {
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-lg);
+  }
+  
+  .testimonial-author {
+    font-size: var(--font-size-md);
+  }
+  
+  .testimonial-role {
+    font-size: var(--font-size-xs);
+  }
+  
+  .slider-nav {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .slider-nav.prev {
+    left: -30px;
+  }
+  
+  .slider-nav.next {
+    right: -30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial {
+    padding: var(--space-lg);
+  }
+  
+  .slider-nav {
+    display: none; /* Esconde setas no mobile muito pequeno */
+  }
 }
 
 /* --- FAQ Section --- */
