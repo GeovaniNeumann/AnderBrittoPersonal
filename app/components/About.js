@@ -77,7 +77,7 @@ export default function About() {
               </p>
               
               <p>
-                Minha missão é proporcionar uma transformação completa — não apenas 
+                Minha missão é proporcionar uma transformação completa não apenas 
                 no corpo, mas também na mente e no estilo de vida. Combino ciência 
                 do exercício, nutrição e psicologia para criar programas 100% 
                 personalizados.
