@@ -62,7 +62,7 @@ export default function Footer() {
         <div className="footer-column footer-contact">
           <h3 className="footer-heading">Contato</h3>
           <p><i className="fas fa-map-marker-alt"></i> Rua Exemplo, 123 - Cidade, Estado</p>
-          <p><i className="fas fa-phone"></i> (41) 99987-8219</p>
+          <p><i className="fas fa-phone"></i> (41) 99987-8219 </p>
           <p><i className="fas fa-envelope"></i> contato@andersonbritto.com</p>
         </div>
       </div>
@@ -74,7 +74,7 @@ export default function Footer() {
         <p className="developer-info">
           Desenvolvido por{' '}
           <a
-            href="https://portifoliogeovani.netlify.app/"
+            href="https://portifolio-geovani.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="developer-link"
