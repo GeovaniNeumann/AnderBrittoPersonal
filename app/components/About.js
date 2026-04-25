@@ -52,7 +52,7 @@ export default function About() {
           <div className="about-image">
             <div className="about-image-frame">
               <img
-                src="https://i.ibb.co/pBjTbdgD/5SW0a.jpg"
+                src="https://i.ibb.co/8nZ73G0k/Sem-nome-800-x-800-px.png"
                 alt="Anderson Britto - Personal Trainer"
               />
               <div className="image-overlay" />
